@@ -1,0 +1,31 @@
+<h2 class="text-center">
+  Dashboards
+</h2>
+
+<% if @dashboards %>
+
+  <table class="table table-condensed">
+
+    <thead>
+      <tr>
+        <th> Dashboard Name </th>
+        <th> Edit </th>
+        <th> Delete </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @dashboards.each do |dboard| %>
+        <tr>
+          <td> <%=link_to dboard.name, dashboard_thing_path(dboard)%> </td>
+          <td><%=link_to "Edit", dashboard_edit_path(dboard), :class=> "btn btn-info"%> </td>
+          <td><%=link_to "Delete", dashboard_delete_path(dboard), :class=>"btn btn-danger", :data => {:confirm=> "Are you sure?"}%> </td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <%=link_to "Create New", user_dashboards_new_path%>
+
+<%end%>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  query_id: 1
+  group: MyString
+  x_axis: MyString
+  y_axis: MyString
+
+two:
+  query_id: 1
+  group: MyString
+  x_axis: MyString
+  y_axis: MyString

@@ -1,0 +1,9 @@
+<p> This is your last 100 queries!</p>
+
+<form id="history_form" method="get">
+  <input type='text' class='input-small' id="name" placeholder = "<%=@name%>">
+  <button type="submit" class="btn btn-primary" id='history_update'>Update</button>
+</form>
+<div id='q_history'>
+  <%= render :partial => "queryhistory" %>
+</div>

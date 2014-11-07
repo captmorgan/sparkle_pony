@@ -1,0 +1,20 @@
+<p>Enter new query to run:</p>
+
+<div id="loading_div" style="opacity:0.5;position:absolute;top:30%;left:30%">
+  <%= image_tag "loading_gif.gif" %>
+</div>
+<form id="query_form" method="post" action='/user/query/create'>
+  <%= token_tag form_authenticity_token() %>
+  <textarea class="field span12" id="query" name="query" rows="20"><%= @query %></textarea>
+
+
+    <label class='checkbox'>
+      <input type="checkbox" id="csv" name="csv" value="true">
+        Download CSV
+    </label>
+
+
+  <div>
+    <button type="submit" class="btn btn-primary" name='results'>Submit</button>
+  </div>
+</form>

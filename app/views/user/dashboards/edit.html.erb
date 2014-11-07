@@ -1,0 +1,109 @@
+<div class="row-fluid">
+
+    <legend>Dashboard  Inputs
+     <%=link_to "delete dashboard",
+       dashboard_delete_path(@dq.id),
+       :class => "btn btn-danger btn-mini pull-right"
+     %>
+      <%=link_to "view dashboard",
+        dashboard_thing_path(@dq.id),
+        :class => "btn btn-success btn-mini pull-right"
+      %>
+    </legend>
+
+    <div class="span3">
+      <%= form_for @dboard, url: {action: 'update_name'}, method: :put, remote: true do |f| %>
+        <label><strong>1) Dashboard Name</strong> </label>
+        <%= f.text_field :name %>
+        <%= f.submit "Update Name", :class => 'btn btn-primary'%>
+      <% end %>
+    </div>
+
+    <div class="span3" id='db_query_col'>
+      <strong>2) Query</strong>
+      <span class="help-block">Please write a query to power your dashboard.</span>
+      <%= form_for @dq, url: {action: 'update_query'},
+                        method: :put,
+                        remote: true,
+                        html: { id: "db_query_update" } do |f| %>
+        <%= f.text_area :query, :class => 'input-xlarge', :rows => 15%>
+        <%= f.submit "Update Query", :class => 'btn btn-primary'%>
+      <% end %>
+    </div>
+
+  <div class="span2">
+  <%= form_for @dq, url: {action: 'update_cols'},
+                    method: :put,
+                    remote: true,
+                    html: { id: "db_col_update" } do |f| %>
+
+      <strong>3) Assign axis to columns</strong>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th> Column Name </th>
+            <th> Data type </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> x-axis </td>
+            <td>
+              <select id = 'db_type' name='x_axis' >
+                <option value = '<%= @x_axis %>'>
+                  <%= @x_axis %>
+                </option>
+                <option value = '<%= @y_axis %>'>
+                  <%= @y_axis %>
+                </option>
+                <% if @group %>
+                  <option value = '<%= @group %>'>
+                    <%= @group %>
+                  </option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td> y-axis </td>
+            <td>
+              <select id = 'db_type' name='y_axis' >
+                <option value = '<%= @y_axis %>'>
+                  <%= @y_axis %>
+                </option>
+                <option value = '<%= @x_axis %>'>
+                  <%= @x_axis %>
+                </option>
+                <% if @group %>
+                  <option value = '<%= @group %>'>
+                    <%= @group %>
+                  </option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+          <!-- this probably isn't advisable -->
+          <tr id='db_group_row' data-value='<%= @group%>'>
+              <td> group </td>
+              <td>
+                <select id = 'db_type' name='group' >
+                  <option value = '<%= @group %>'>
+                    <%= @group %>
+                  </option>
+                  <option value = '<%= @x_axis %>'>
+                    <%= @x_axis %>
+                  </option>
+                  <option value = '<%= @y_axis %>'>
+                    <%= @y_axis %>
+                  </option>
+                </select>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-primary">Update Columns!</button>
+    <% end %>
+  </div>
+
+</div>

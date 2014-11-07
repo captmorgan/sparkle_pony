@@ -1,0 +1,26 @@
+<p> Look at this beautiful query you created </p>
+<div id="queries">
+  <% if @query.present? %>
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <th>id</th>
+        <th>Executed at</th>
+        <th>Query</th>
+        <th>Result</th>
+      </tr>
+      <tr>
+        <td>
+          <%= @query.id %></td>
+        <td>
+          <%= @query.updated_at %>
+        </td>
+        <td>
+          <%= @query.input %>
+        </td>
+        <td>
+          <%= @query.output %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

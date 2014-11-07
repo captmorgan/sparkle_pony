@@ -1,0 +1,17 @@
+development: &defaults
+  dbs: 
+  adapter:   mysql2
+  encoding:  utf8
+  host:
+  reconnect: true
+
+test:
+  <<: *defaults
+
+production:
+  dbs:
+  adapter:   mysql2
+  host:
+  port:      3306
+  encoding:  utf8
+  reconnect: true

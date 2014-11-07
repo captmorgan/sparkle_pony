@@ -1,0 +1,30 @@
+<form class="form" action="create" id="cols_form"  method="post">
+  <%= token_tag form_authenticity_token() %>
+  <strong>3) Assign axis to columns</strong>
+
+     <table class="table">
+      <thead>
+        <tr>
+          <th> Type </th>
+          <th> Column </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @typez.each do |col_type| %>
+          <tr>
+            <td> <%= col_type %> </td>
+            <td>
+              <select id='col_<%=col_type%>' name=<%= col_type %> >
+                <% @cols.each do |col_name| %>
+                  <option> <%= col_name %> </option>
+                <% end %>
+              </select>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-sucess btn-large">Create Dashboard!</button>
+  </form>
+</div>

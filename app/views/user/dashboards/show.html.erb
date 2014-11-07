@@ -1,0 +1,41 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<h1 class="text-center">
+<%= @title %>
+</h1>
+
+<%= line_chart(@gd) %>
+
+
+<% if @results && @results.first %>
+<a href="#" class="btn btn-info" id='toggler'>Toggle Cross-Tab</a>
+
+<div id ='crosstab'>
+  <p> You have results:</p>
+  <table class="table table-striped table-hover table-condensed table-bordered">
+    <thead>
+      <tr>
+        <% @results.first.keys.each do |col_name| %>
+          <th>
+            <%= col_name %>
+          </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @results.each do |row| %>
+      </tr>
+        <% row.each do |key,value| %>
+          <td>
+            <%= value %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Your query returned no results</p>
+</div>
+<% end %>
+

@@ -1,0 +1,31 @@
+  <div id="header">
+    <p><%=link_to "Recent queries (#{@queries.count}):",user_query_history_path(@user)%> </p>
+
+  </div>
+  <div id="queries">
+  <% if !@queries.empty?%>
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <th>Executed at</th>
+        <th>Query</th>
+        <th>Result</th>
+      </tr>
+      <% @queries.each do |query| %>
+      <tr>
+        <td>
+          <%=link_to query.updated_at, query_show_path(query)%>
+        </td>
+        <td>
+          <a href="#" class="copy_to_form">
+            <%= query.input %>
+          </a>
+        </td>
+        <td>
+          <%= query.output %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+</div>

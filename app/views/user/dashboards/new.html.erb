@@ -1,0 +1,80 @@
+<h3>Three steps to a working Dashboard!</h3>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+
+  <form class='form' id="dash1_form" action= '/user/dashboards/create' method="post">
+  <%= token_tag form_authenticity_token() %>
+
+    <legend>Dashboard  Inputs </legend>
+
+    <div class="span3">
+      <label><strong>1) Dashboard Name</strong> </label>
+      <input type="text" name='name' id='dboard_name' placeholder="Activations by Day">
+
+      <br><br>
+      <p> After you name your dashboard, and submit your query,
+        you will be asked to specify which columns correspond to which axis. Then you are done!
+        <br> <br> Your query should have no more than three columns.
+          An x-axis, a y-axis, and optionally,
+          a column that designates a group, for multiline queries
+      </p>
+
+    </div>
+
+    <div class="span3" id='db_query_col'>
+      <strong>2) Query</strong>
+      <span class="help-block">Please write a query to power your dashboard.</span>
+
+      <textarea rows="15" name='query' type="text" id='dboard_query' class="input-xlarge">
+      </textarea>
+      <div>
+        <button id='db_query_submit' class="btn btn-primary">Submit Query</button>
+      </div>
+
+
+    </div>
+
+
+
+
+  <div class="span2" id='assign_cols'>
+    <strong>3) Assign axis to columns</strong>
+
+       <table class="table">
+        <thead>
+          <tr>
+            <th> Type </th>
+            <th> Column </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td> x-axis </td>
+            <td>
+              <select id='db_type' name='x_axis' >
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td> y-axis </td>
+            <td>
+              <select id='db_type' name='y_axis' >
+              </select>
+            </td>
+          </tr>
+          <tr id='db_group_row'>
+            <td> group </td>
+            <td>
+              <select id='db_type' name='group' >
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type='submit' id='db_submit' class="btn btn-sucess btn-large">Create Dashboard!</button>
+  </div>
+</form>
+</div>
+</div>

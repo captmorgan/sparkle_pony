@@ -1,0 +1,10 @@
+dashdata:
+  dbs:
+  adapter:   mysql2
+  encoding:  utf8
+  host:
+  reconnect: false
+  username:
+  password:
+  database:
+

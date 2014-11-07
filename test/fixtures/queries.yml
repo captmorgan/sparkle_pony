@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  output: MyText
+  rows: 1
+  input: MyText
+
+two:
+  user_id: 1
+  output: MyText
+  rows: 1
+  input: MyText

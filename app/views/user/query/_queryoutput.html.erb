@@ -1,0 +1,26 @@
+<% if @results && @results.first %>
+  <table class="table table-striped table-hover table-condensed table-bordered">
+    <thead>
+      <tr>
+        <% @results.first.keys.each do |col_name| %>
+          <th>
+            <%= col_name %>
+          </th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @results.each do |row| %>
+      </tr>
+        <% row.each do |key,value| %>
+          <td>
+            <%= value %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Your query returned no results</p>
+<% end %>
